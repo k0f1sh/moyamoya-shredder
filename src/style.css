@@ -59,22 +59,27 @@ button#shred {
     overflow: hidden;
     height: 500px;
     margin-top: 20px;
+    padding: 10px;
+}
+
+.shred-text-box {
+    animation: fade-out 10s .5s;
 }
 
 .shred-text {
     display: inline-block;
     font-size: 1.2rem;
     color: #374151;
-    animation: shred-animation 0.1s infinite .5s;
+    animation: shake 0.1s infinite .5s;
 }
 
-@keyframes shred-animation {
+@keyframes shake {
     0% {
         transform: translateX(0px) rotateZ(0deg)
     }
 
     25% {
-        transform: translateX(2px) rotateZ(1deg)
+        transform: translateX(4px) rotateZ(4deg)
     }
 
     50% {
@@ -82,10 +87,26 @@ button#shred {
     }
 
     75% {
-        transform: translateX(2px) rotateZ(-1deg)
+        transform: translateX(4px) rotateZ(-4deg)
     }
 
     100% {
         transform: translateX(0px) rotateZ(0deg)
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        margin-top: 0;
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        margin-top: 400px;
+        opacity: 0;
     }
 }
